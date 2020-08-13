@@ -1,11 +1,53 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <script type="application/javascript" src="src/index.js" charset="UTF-8"></script>
+    
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title></title>
+
   </head>
   <body>
-   Sample text - replace me! 
+
+    <!--start navbar-->
+
+
+
+    <!--end navbar-->
+
+
+    <!--start login-->
+    <div id="login-container">
+      <form id="login-form">
+          <label> Login: <input type="text" name="new-user" id="new-user"></label>
+          <input type="submit" value="Login">
+      </form>
+    </div>
+
+    <!--end login-->
+
+    <div class="column has-text-centered">
+      <h2 class="title is-2" id="joke"></h2>
+    </div>
+    <div class="column has-text-centered">
+      <h2 class="title is-2" id="punchline"></h2>
+    </div>
+
+    <!--start create joke-->
+    <button type="button" name="button" class="button is-primary" id="randomize">Random Joke</button>
+    <button type="button" name="button" class="button is-primary" id="punchlineBtn">Reveal Punchline</button>
+    <!--end create joke-->
+
   </body>
+  
+
+  <script src="src/adapters/UsersAdapter.js" /></script>
+  <script src="src/adapters/JokesAdapter.js" /></script>
+
+  <script src="src/components/joke.js"></script>
+  <script src="src/components/jokes.js"></script>
+  <script src="src/components/user.js"></script>
+  <script src="src/components/users.js"></script>
+  <script src="src/components/app.js" /></script>
+  <script src="src/index.js" /></script>
 </html>

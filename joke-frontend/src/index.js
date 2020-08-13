@@ -1,7 +1,22 @@
-console.log("testing...")
 
-// test that we can get data from the backend
-const BACKEND_URL = 'localhost:3000';
-fetch(`${BACKEND_URL}/test`)
-  .then(response => response.json())
-  .then(parsedResponse => console.log(parsedResponse));
+
+const BASE_URL = 'http://localhost:3000'
+const USERS_URL = `${BASE_URL}/users`
+const JOKES_URL = `${BASE_URL}/jokes`
+
+
+document.addEventListener('DOMContentLoaded', () => {
+   fetchUsers()
+   const app = new App()
+})
+
+function fetchUsers() {
+    console.log('Loaded!')
+    fetch(USERS_URL)
+    .then(function(resp) {
+        return resp.json()
+    })
+    .then(function(users) {
+        console.log(users)
+    })
+}
