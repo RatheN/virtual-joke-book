@@ -2,11 +2,6 @@ class App {
   constructor() {
     console.log("The app has loaded!")
     this.jokes = new Jokes()
-    this.clearStorage()
+    this.users = new Users()
   }
-
-  clearStorage() {
-    localStorage.clear()
-  }
-
 }

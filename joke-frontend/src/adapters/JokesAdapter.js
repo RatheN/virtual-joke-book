@@ -1,25 +1,23 @@
+
 class JokesAdapter {
   constructor() {
     this.baseUrl = "http://localhost:3000/jokes"
   }
 
   getJokes() {
-    return fetch(this.baseUrl).then(res => res.json())
+    return fetch(`${this.baseUrl}`).then(res => res.json())
   }
 
-  getAndCreateJoke(id, phrase, punchline) {
-    const joke = {
-        user_id: id,
-        phrase: phrase,
-        punchline: punchline
-    }
-
+  createJoke(data) {
+    
     return fetch(this.baseUrl, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-            'content-type': 'application/json'
-    }, 
-    body: JSON.stringify({ joke })
-})
-}}
+      method: 'POST',
+      headers: {
+         'content-type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+  }
+
+}

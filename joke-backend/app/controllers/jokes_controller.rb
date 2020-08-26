@@ -6,6 +6,12 @@ class JokesController < ApplicationController
         render json: @jokes.to_json(include: [:user]), status: 200
     end
 
+    def jokelist
+      @jokes = Joke.jokelist
+
+      render json: @jokes.to_json(include: [:user]), status: 200
+    end
+
     def show
       @joke = Joke.find_by(id: params[:id])
   
@@ -44,7 +50,7 @@ class JokesController < ApplicationController
     private
   
     def joke_params
-      params.require(:joke).permit(:user_id, :phrase, :punchline)
+      params.require(:joke).permit(:user_id, :name, :phrase, :punchline)
     end
 
 end

@@ -7,4 +7,7 @@ class Joke {
         this.punchline = jokeJSON.punchline
     }
 
+    renderLi(){
+        return `<li data-id=${this.id}>${this.name}<a>Delete</a></li>`
+    }
 }

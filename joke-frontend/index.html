@@ -4,45 +4,84 @@
     
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <link rel="stylesheet" href="css/master.css">
+
     <title></title>
+    
 
   </head>
   <body>
 
-    <!--start navbar-->
+    <section class="section">
+      <div class="container" id="header">
+        <div class="columns is-mobile">
+          <div class="column has-text-left">
+            Jokebook
+          </div>
+          <div class="column has-text-right">
+            <a id="render-user-form">Create a User</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="render-form">Create a Joke</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="show-jokelist">Jokelist</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
 
-
-    <!--end navbar-->
-
-
-    <!--start login-->
     <div id="login-container">
-      <form id="login-form">
-          <label> Login: <input type="text" name="new-user" id="new-user"></label>
-          <input type="submit" value="Login">
+      <form id="user-form" style="display: none;">
+          <label> Name: <input type="text" name="new-user" class="input" id="new-user"></label>
+          <input type="submit" value="Login" class="button is-primary" id="submit-user">
       </form>
     </div>
 
-    <!--end login-->
+    <form id="form" style="display: none;">
+      <div class="field">
+        <label class="label">Author</label>
+        <div class="control">
+          <input type="text" name="name" class="input" id="name" placeholder="Please enter your name" required>
+        </div>
+        <label class="label">phrase</label>
+        <div class="control">
+          <input type="text" name="phrase" class="input" id="phrase" placeholder="Please enter the phrase" required>
+        </div>
+        <label class="label">Punchline</label>
+        <div class="control">
+          <input type="text" name="punchline" class="input" id="punchline" placeholder="Please enter the punchline" required>
+        </div>
+        <div class="field">
+          <br>
+          <p>(Note: You must create a user before posting a new joke.)</p>
+          <div class="control">
+            <input type="submit" value="Add to Jokelist" class="button is-primary" id="submit">
+          </div>
+        </div>
+      </div>
+    </form>
+
+
+
+    <div class="column has-text-centered">
+      <button type="button" name="button" class="button is-primary" id="randomize">Random Joke</button>
 
     <div class="column has-text-centered">
       <h2 class="title is-2" id="joke"></h2>
     </div>
-    <div class="column has-text-centered">
-      <h2 class="title is-2" id="punchline"></h2>
-    </div>
 
-    <!--start create joke-->
-    <button type="button" name="button" class="button is-primary" id="randomize">Random Joke</button>
-    <button type="button" name="button" class="button is-primary" id="punchlineBtn">Reveal Punchline</button>
-    <!--end create joke-->
+    <section class="section" id="jokelist-container" style="display: none;">
+      <div class="container content">
+        <h2 class="title is-2">Jokelist</h2>
+
+        <ul id="joke">
+
+        </ul>
+      </div>
+    </section>
 
   </body>
   
-
-  <script src="src/adapters/UsersAdapter.js" /></script>
   <script src="src/adapters/JokesAdapter.js" /></script>
+  <script src="src/adapters/UsersAdapter.js" /></script>
 
   <script src="src/components/joke.js"></script>
   <script src="src/components/jokes.js"></script>
@@ -50,4 +89,5 @@
   <script src="src/components/users.js"></script>
   <script src="src/components/app.js" /></script>
   <script src="src/index.js" /></script>
+
 </html>

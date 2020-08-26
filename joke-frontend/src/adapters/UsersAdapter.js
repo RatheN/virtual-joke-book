@@ -1,20 +1,21 @@
-class UsersAdapter {
-  constructor() {
-      this.baseUrl = ('http://localhost:3000/users')
-  }
 
-  loginUser(value) {
-    const user = {
-        name: value
+class UsersAdapter {
+    constructor() {
+      this.baseURL = "http://localhost:3000/users"
     }
-    return fetch(`${this.baserUrl}`, { // causing an error, method not allowed
+  
+    getUsers() {
+      return fetch(this.baseURL).then(res => res.json())
+    }
+  
+    createUser(data) {
+      return fetch(this.baseURL, {
         method: 'POST',
         headers: {
-            'content-type': 'application/json'
-        }, 
-        body: JSON.stringify({ user })
-    }).then(response => response.json())
-}
-
-
-}
+           'content-type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+      .then(res => res.json())
+    }
+  }

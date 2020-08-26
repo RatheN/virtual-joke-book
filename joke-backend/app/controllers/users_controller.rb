@@ -17,13 +17,9 @@ class UsersController < ApplicationController
     end
     
     def create
-        current_user = User.find_by(id: params[:user_id])
-        user = current_user.users.build(user_params)
-        if @current_user.save
-            render json: user, status: 200
-        else
-            render json: { error: "Failed to create user", status: 500 }, status: 500
-        end
+        @user = User.create(user_params)
+
+        render json: @user, status: 200
     end  
     
     def update
